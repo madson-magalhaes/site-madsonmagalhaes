@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import About from "@/components/About";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import CaseStudies from "@/components/CaseStudies";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main className="bg-gradient-dark">
       <Header />
+      <About />
       <Hero />
       <HowItWorks />
       <CaseStudies />

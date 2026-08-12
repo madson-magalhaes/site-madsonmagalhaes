@@ -19,7 +19,7 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a href="#contato" className="button-primary text-center">
-                Conversar com Especialista
+                Quero Saber Mais
               </a>
               <a href="#servicos" className="button-secondary text-center">
                 Conhecer Serviços

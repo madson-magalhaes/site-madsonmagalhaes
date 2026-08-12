@@ -12,15 +12,7 @@ export default function Header() {
       <div className="container-safe">
         <nav className="flex items-center justify-between py-4">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10">
-              <Image
-                src="/outsider-m.png"
-                alt="Outsider M."
-                fill
-                className="object-contain"
-              />
-            </div>
-            <span className="hidden sm:block text-brand-text-primary font-semibold">
+            <span className="text-brand-text-primary font-semibold">
               Madson Magalhães - Inteligência Artificial para negócios
             </span>
           </Link>
