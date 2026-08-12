@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #d0d0d0;
+  background: linear-gradient(135deg, #0A1128 0%, #16213e 100%);
+}
+
+/* Color Variables */
+:root {
+  --accent-primary: #FF6700;
+  --accent-glow: rgba(255, 103, 0, 0.2);
+  --accent-border: rgba(255, 103, 0, 0.3);
+  --color-blue: #3b82f6;
+  --color-green: #22c55e;
+  --color-purple: #a855f7;
+  --color-red: #ef4444;
+  --color-yellow: #fbbf24;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Utilities */
+.text-brand-orange {
+  color: #FF6700;
+}
+
+.bg-brand-orange {
+  background-color: #FF6700;
+}
+
+.border-brand-orange {
+  border-color: #FF6700;
+}
+
+.hover-orange:hover {
+  color: #FF6700;
+  transition: color 0.3s ease;
+}
+
+.section-divider {
+  border-top: 4px solid #FF6700;
+}
+
+/* Semantic Boxes */
+.box {
+  padding: 1.5rem 2rem;
+  margin: 1rem 0;
+  border-radius: 12px;
+  border-left: 6px solid;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.box-orange {
+  border-left-color: #FF6700;
+}
+
+.box-blue {
+  border-left-color: #3b82f6;
+}
+
+.box-green {
+  border-left-color: #22c55e;
+}
+
+.box-purple {
+  border-left-color: #a855f7;
+}
+
+.box-red {
+  border-left-color: #ef4444;
+}
+
+.box h3 {
+  color: #FF6700;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+}
+
+.box p {
+  color: #d0d0d0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+/* Highlight Box */
+.highlight-box {
+  background: linear-gradient(135deg, rgba(255, 103, 0, 0.2), rgba(168, 85, 247, 0.2));
+  border: 3px solid #FF6700;
+  padding: 2rem;
+  border-radius: 16px;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.highlight-box p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.highlight-box p.secondary {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  color: #a0a0a0;
+  font-weight: 400;
+}
+
+/* Buttons */
+.button-primary {
+  @apply px-6 py-3 bg-brand-orange text-white rounded-lg font-medium
+         transition-all duration-300 hover:brightness-110 active:scale-95
+         cursor-pointer border-none;
+}
+
+.button-secondary {
+  @apply px-6 py-3 border-2 border-brand-orange text-brand-orange rounded-lg
+         font-medium transition-all duration-300 hover:bg-brand-orange
+         hover:text-white cursor-pointer;
+}
+
+/* Cards */
+.card-light {
+  @apply p-6 bg-gray-50 rounded-lg border border-gray-200
+         hover:shadow-lg transition-shadow hover:border-brand-orange;
+}
+
+.card-dark {
+  @apply p-6 bg-white/5 rounded-lg border border-white/10
+         hover:shadow-lg transition-shadow hover:border-brand-orange;
+}
+
+.container-safe {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Comparison Table */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.comparison-table th {
+  background: rgba(255, 103, 0, 0.2);
+  color: #FF6700;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border: 2px solid rgba(255, 103, 0, 0.3);
+  text-align: left;
+  font-weight: 600;
+}
+
+.comparison-table td {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #d0d0d0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #FF6700;
+  outline-offset: 2px;
+}
+
+/* Section spacing */
+section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0A1128 0%, #16213e 100%);
+}
+
+section:first-child {
+  padding-top: 0;
+}
