@@ -1,6 +1,7 @@
 "use client";
 
 import { useTracking } from "@/hooks/useTracking";
+import { getOrCreateRefId } from "@/lib/tracking";
 import { useState } from "react";
 
 export default function Contact() {
@@ -8,8 +9,11 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
-  const whatsappMessageRaw = process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ||
-    "Olá! Vim da sua landing page. Gostaria de agendar uma consulta.";
+  const whatsappMessageTemplate = process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ||
+    "Olá! Vim da sua landing page. Cupom: {cupom}";
+
+  const refId = getOrCreateRefId();
+  const whatsappMessageRaw = whatsappMessageTemplate.replace("{cupom}", refId);
   const whatsappMessage = encodeURIComponent(whatsappMessageRaw);
 
   const handleWhatsApp = async () => {
