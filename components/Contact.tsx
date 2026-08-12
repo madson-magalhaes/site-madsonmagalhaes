@@ -94,17 +94,10 @@ export default function Contact() {
               <button
                 onClick={handleWhatsApp}
                 disabled={loading}
-                className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-3 text-lg"
+                className="button-primary w-full text-center text-lg py-4"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3.01 1.01 4.35L2.05 22l6.03-1.61C10.79 22.18 11.88 22.5 13 22.5c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.02 0-2.02-.25-2.95-.7l-.21-.1-2.17.58.6-2.19-.13-.2C4.27 15.77 4 14.12 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm3.89-12.71c-.38-.38-1.01-.38-1.39 0l-.51.51c-.39.39-.39 1.02 0 1.41l1.01 1.01c-.29.86-.74 1.63-1.34 2.25l-1.01-1.01c-.39-.39-1.02-.39-1.41 0l-.51.51c-.38.38-.38 1.01 0 1.39l1.01 1.01c-.61.6-1.39 1.05-2.25 1.34l-1.01-1.01c-.39-.39-1.02-.39-1.41 0l-.51.51c-.38.38-.38 1.01 0 1.39l1.01 1.01c.86-.29 1.63-.74 2.25-1.34l1.01 1.01c.39.39 1.02.39 1.41 0l.51-.51c.38-.38.38-1.01 0-1.39l-1.01-1.01c.61-.61 1.05-1.39 1.34-2.25l1.01 1.01c.39.39 1.02.39 1.41 0l.51-.51c.39-.39.39-1.02 0-1.41z" />
-                </svg>
-                <span>{loading ? "Abrindo..." : "Conversar no WhatsApp"}</span>
+                {loading ? "Abrindo..." : "Conversar no WhatsApp"}
               </button>
-
-              <p className="text-sm text-brand-text-secondary">
-                ⚡ Resposta garantida em até 2 horas
-              </p>
             </div>
           </div>
         </div>
