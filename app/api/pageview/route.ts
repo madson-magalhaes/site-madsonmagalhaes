@@ -78,6 +78,7 @@ export async function POST(request: Request): Promise<NextResponse> {
         p_user_agent: sanitized.user_agent,
         p_client_ip: clientIp,
         p_utm_id: sanitized.utm_id,
+        p_id_pixel: config.gtmId || null,
       }
     );
 
