@@ -59,7 +59,7 @@ export function useTracking() {
     }
   }
 
-  async function trackClique(): Promise<void> {
+  async function trackClique(phone?: string): Promise<void> {
     if (!isSupabaseConfigured()) {
       console.warn("[useTracking] Supabase não configurado - clique não será rastreado");
       return;
@@ -74,6 +74,7 @@ export function useTracking() {
         ref_id: refId,
         fbp: fbp,
         fbc: fbc,
+        telefone: phone || null,
       };
 
       const res = await fetch("/api/clique", {

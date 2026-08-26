@@ -40,6 +40,7 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   const fbc = sanitizeFbcFbp(record.fbc);
   const fbp = sanitizeFbcFbp(record.fbp);
+  const telefone = typeof record.telefone === "string" ? record.telefone.replace(/\D/g, "") : null;
 
   try {
     const supabase = getSupabaseAdmin() as any;
@@ -49,6 +50,7 @@ export async function POST(request: Request): Promise<NextResponse> {
         p_ref_id: refIdResult.data,
         p_fbc: fbc,
         p_fbp: fbp,
+        p_telefone: telefone,
       }
     );
 
@@ -57,7 +59,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       return jsonError("falha ao registrar clique", 502);
     }
 
-    console.log(`[api/clique] ✅ Lead registrado - ref_id: ${refIdResult.data}`);
+    console.log(`[api/clique] ✅ Lead registrado - ref_id: ${refIdResult.data}, telefone: ${telefone ? "✓" : "✗"}`);
   } catch (err) {
     console.error("[api/clique] erro inesperado", err);
     return jsonError("erro inesperado", 500);

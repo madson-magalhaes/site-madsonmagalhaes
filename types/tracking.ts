@@ -33,4 +33,5 @@ export interface CliquePayload {
   ref_id: string;
   fbc?: string | null;
   fbp?: string | null;
+  telefone?: string | null;
 }
