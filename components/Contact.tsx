@@ -2,7 +2,7 @@
 
 import { useTracking } from "@/hooks/useTracking";
 import { getOrCreateRefId } from "@/lib/tracking";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Contact() {
   const { trackClique } = useTracking();
