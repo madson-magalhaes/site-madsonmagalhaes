@@ -50,7 +50,6 @@ export async function POST(request: Request): Promise<NextResponse> {
         p_ref_id: refIdResult.data,
         p_fbc: fbc,
         p_fbp: fbp,
-        p_telefone: telefone,
       }
     );
 
