@@ -6,23 +6,23 @@ import { useState } from "react";
 
 export default function Contact() {
   const { trackClique } = useTracking();
-  const [loading, setLoading] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState("https://wa.me/558896758647");
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
-  const whatsappMessageTemplate = process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ||
-    "Olá! Vim da sua landing page. Cupom: {cupom}";
+  useEffect(() => {
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "558896758647";
+    const whatsappMessageTemplate =
+      process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ||
+      "Olá! Vim da sua landing page. Cupom: {cupom}";
 
-  const refId = getOrCreateRefId();
-  const whatsappMessageRaw = whatsappMessageTemplate.replace("{cupom}", refId);
-  const whatsappMessage = encodeURIComponent(whatsappMessageRaw);
+    const refId = getOrCreateRefId();
+    const whatsappMessageRaw = whatsappMessageTemplate.replace("{cupom}", refId);
+    const whatsappMessage = encodeURIComponent(whatsappMessageRaw);
 
-  const handleWhatsApp = async () => {
-    trackClique();
-    setLoading(true);
-    setTimeout(() => {
-      window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, "_blank");
-      setLoading(false);
-    }, 300);
+    setWhatsappUrl(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`);
+  }, []);
+
+  const handleWhatsAppClick = () => {
+    trackClique(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "558896758647");
   };
 
   return (
@@ -91,13 +91,15 @@ export default function Contact() {
                 </p>
               </div>
 
-              <button
-                onClick={handleWhatsApp}
-                disabled={loading}
-                className="button-primary w-full text-center text-lg py-4"
+              <a
+                href={whatsappUrl}
+                onClick={handleWhatsAppClick}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button-primary w-full text-center text-lg py-4 block"
               >
-                {loading ? "Abrindo..." : "Conversar no WhatsApp"}
-              </button>
+                Conversar no WhatsApp
+              </a>
             </div>
           </div>
         </div>
